@@ -14,12 +14,13 @@ public class ItemsImp implements ItemsDAO{
     @Override
     public Items createItems(Items items) {
         try (Connection connection = DataBaseConnection.createConnection()) {
-            String sql = "insert into items values(default, ?, ?)";
+            String sql = "insert into items values(default, ?, ?, ?, ?) returning item_id";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, items.getItem_name());
-            ps.setString(2, items.getItem_description());
-            ps.setInt(3, items.getItem_id());
-            ps.setFloat(4, 1);
+            ps.setString(2, items.getItem_name());
+            ps.setString(3, items.getItem_description());
+//            ps.setInt(1, items.getItem_id());
+            ps.setFloat(4, items.getPrice());
+            // ps.setInt(2, items.se());
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
