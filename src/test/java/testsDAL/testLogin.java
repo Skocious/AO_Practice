@@ -16,7 +16,7 @@ public class testLogin {
 
     @Test
     public void selectCustomerLoginId(){
-        Login login = loginDAO.selectCustomerLoginId(1,"John", "cat");
+        Login login = loginDAO.selectCustomerLoginId(1,"Jack", "cat");
         Assert.assertEquals(login.getLoginId(), 1);
     }
 
