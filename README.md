@@ -1,2 +1,1 @@
-# AO_Practice
-This will be my practice repository for P2
+# Alpha_Organics_P2
