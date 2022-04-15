@@ -1,32 +1,61 @@
 package ServiceAccessLayer;
 
+import DataAccessLayer.ItemsDAO;
+import customExceptions.InvalidId;
 import entities.Items;
 
 import java.util.List;
 
 public class ItemsSImp implements ItemsSO{
+    ItemsDAO itemsDAO;
+
+    public ItemsSImp(ItemsDAO itemsDAO) {
+        this.itemsDAO = itemsDAO;
+    }
+
+    @Override //need to add business logic conditions to all below
+    public Items serviceCreateItems(Items items) {
+        try {
+            return this.itemsDAO.createItems(items);
+        }catch (InvalidId e) {
+            throw new InvalidId("Information entered is not correct, please try again.");
+        }
+    }
+
+
     @Override
-    public Items createItems(Items items) {
-        return null;
+    public Items serviceSelectItemsById(int itemId) {
+        try {
+            return this.itemsDAO.selectItemsById(itemId);
+        }catch (InvalidId e) {
+            throw new InvalidId("Information entered is not correct, please try again.");
+        }
     }
 
     @Override
-    public Items selectItemsById(int itemId) {
-        return null;
+    public List<Items> serviceSelectAllItems() {
+        try {
+            return this.itemsDAO.selectAllItems();
+        }catch (InvalidId e) {
+            throw new InvalidId("Information entered is not correct, please try again.");
+        }
     }
 
     @Override
-    public List<Items> selectAllItems() {
-        return null;
+    public Items serviceUpdateItemsById(Items items) {
+        try {
+            return this.itemsDAO.updateItemsById(items);
+        }catch (InvalidId e) {
+            throw new InvalidId("Information entered is not correct, please try again.");
+        }
     }
 
     @Override
-    public Items updateItemsById(Items items) {
-        return null;
-    }
-
-    @Override
-    public int deleteItemsById(int itemId) {
-        return 0;
+    public int serviceDeleteItemsById(int itemId) {
+        try {
+            return this.itemsDAO.deleteItemsById(itemId);
+        }catch (InvalidId e) {
+            throw new InvalidId("Information entered is not correct, please try again.");
+        }
     }
 }

@@ -9,16 +9,16 @@ public class testLogin {
     LoginImp loginDAO = new LoginImp();
 
     @Test
-    public void selectProducerLoginId(){
-    Login login = loginDAO.selectProducerLoginId(1,"John", "cat");
+    public void selectLoginId(){
+    Login login = loginDAO.selectLoginId(1,"John", "cat");
     Assert.assertEquals(login.getLoginId(), 1);
     }
 
-    @Test
-    public void selectCustomerLoginId(){
-        Login login = loginDAO.selectCustomerLoginId(1,"Jack", "cat");
-        Assert.assertEquals(login.getLoginId(), 1);
-    }
+//    @Test
+//    public void selectCustomerLoginId(){
+//        Login login = loginDAO.selectCustomerLoginId(1,"Jack", "cat");
+//        Assert.assertEquals(login.getLoginId(), 1);
+//    }
 
 
 }

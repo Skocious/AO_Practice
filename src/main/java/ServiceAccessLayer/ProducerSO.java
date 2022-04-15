@@ -3,7 +3,7 @@ package ServiceAccessLayer;
 import DataAccessLayer.ProducerDAO;
 import entities.Producer;
 
-public interface ProducerSO extends ProducerDAO {
+public interface ProducerSO {
 
-    Producer selectProducerId(int ProducerId, String ProducerName, int LoginId);
+    Producer serviceSelectProducerId(int ProducerId, String ProducerName, int LoginId);
 }

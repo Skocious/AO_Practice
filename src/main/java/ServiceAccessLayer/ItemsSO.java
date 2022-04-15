@@ -4,23 +4,23 @@ import entities.Items;
 
 import java.util.List;
 
-public interface ItemsSO extends ItemsDAO {
+public interface ItemsSO {
     //create Items
-    Items createItems(Items items);
+    Items serviceCreateItems(Items items);
 
 
     //select Items
-    Items selectItemsById(int itemId);
+    Items serviceSelectItemsById(int itemId);
 
 
     //select all Items
-    List<Items> selectAllItems();
+    List<Items> serviceSelectAllItems();
 
 
     // update Items
-    Items updateItemsById(Items items);
+    Items serviceUpdateItemsById(Items items);
 
     //delete Items
-    int deleteItemsById(int itemId);
+    int serviceDeleteItemsById(int itemId);
 
 }
