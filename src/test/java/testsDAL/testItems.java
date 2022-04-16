@@ -6,12 +6,11 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
+//        int item_id;
+//        int producer_id;
 //        String item_name;
 //        String item_description;
-//        int item_id;
 //        int price;
-//        String status;
-//        int login_id;
 
 
 
@@ -21,7 +20,7 @@ public class testItems {
 
     @Test
     public void createItemsSuccess(){
-        Items newItem = new Items("apple", "gala", 0, 1);
+        Items newItem = new Items(0, 4, "apple", "gala", 1);
         Items resultNewItems = itemsDAO.createItems(newItem);
         Assert.assertNotEquals(resultNewItems.getItem_id(), 1);
 
@@ -29,8 +28,8 @@ public class testItems {
 
     @Test
     public void selectItemsByIdSuccess(){
-        Items items = itemsDAO.selectItemsById(-1);
-        Assert.assertEquals(items.getItem_id(), -1);
+        Items items = itemsDAO.selectItemsById(1);
+        Assert.assertEquals(items.getItem_id(), 1);
     }
 
     //check import
@@ -44,7 +43,7 @@ public class testItems {
 
     @Test
     public void updateItemsByIdSuccess(){
-        Items items = new Items("apple", "gala", 1, 1);
+        Items items = new Items(0, 4, "apple", "gala", 1);
         Items result = itemsDAO.updateItemsById(items);
         Assert.assertTrue(items.getItem_id() != 0);
     }

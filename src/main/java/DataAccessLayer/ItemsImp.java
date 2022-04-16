@@ -7,6 +7,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//        int item_id;
+//        int producer_id;
+//        String item_name;
+//        String item_description;
+//        int price;
+
 public class ItemsImp implements ItemsDAO{
 
     public ItemsImp() {super();}
@@ -16,15 +22,15 @@ public class ItemsImp implements ItemsDAO{
         try (Connection connection = DataBaseConnection.createConnection()) {
             String sql = "insert into items values(default, ?, ?, ?, ?) returning item_id";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(2, items.getItem_name());
-            ps.setString(3, items.getItem_description());
-//            ps.setInt(1, items.getItem_id());
+            ps.setString(3, items.getItem_name());
+            ps.setString(4, items.getItem_description());
+            ps.setInt(1, items.getItem_id());
             ps.setFloat(4, items.getPrice());
-            // ps.setInt(2, items.se());
+            ps.setInt(2, items.getProducer_id());
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();
-            items.setItem_id(rs.getInt("itemId"));
+            items.setItem_id(rs.getInt("item_id"));
             return items;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,11 +47,11 @@ public class ItemsImp implements ItemsDAO{
             ResultSet rs = ps.executeQuery();
             rs.next();
             Items items = new Items(
+                    rs.getInt("item_id"),
+                    rs.getInt("producer_id"),
                     rs.getString("item_name"),
                     rs.getString("item_description"),
-                    rs.getInt("item_id"),
                     rs.getInt("price")
-
             );
             return items;
         } catch (SQLException e) {
@@ -64,11 +70,11 @@ public class ItemsImp implements ItemsDAO{
             List<Items> items = new ArrayList<>();
             while (rs.next()) {
                 Items itemList = new Items(
-                        rs.getString("itemName"),
-                        rs.getString("itemDescription"),
-                        rs.getInt("itemId"),
+                        rs.getInt("item_id"),
+                        rs.getInt("producer_id"),
+                        rs.getString("item_name"),
+                        rs.getString("item_description"),
                         rs.getInt("price")
-
                 );
                 items.add(itemList);
             }
@@ -83,7 +89,7 @@ public class ItemsImp implements ItemsDAO{
     @Override
     public Items updateItemsById(Items items) {
         try (Connection connection = DataBaseConnection.createConnection()) {
-            String sql = "update items set itemName = ? itemDescription = ? itemPrice = ? where itemId = ? * ";
+            String sql = "update items set item_name = ? item_description = ? item_price = ? where item_id = ? * ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, items.getItem_name());
             ps.setString(2, items.getItem_description());
