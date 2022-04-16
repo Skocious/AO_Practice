@@ -22,11 +22,11 @@ public class ItemsImp implements ItemsDAO{
         try (Connection connection = DataBaseConnection.createConnection()) {
             String sql = "insert into items values(default, ?, ?, ?, ?) returning item_id";
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(3, items.getItem_name());
-            ps.setString(4, items.getItem_description());
-            ps.setInt(1, items.getItem_id());
+            ps.setString(2, items.getItem_name());
+            ps.setString(3, items.getItem_description());
+            //ps.setInt(0, items.getItem_id());
             ps.setFloat(4, items.getPrice());
-            ps.setInt(2, items.getProducer_id());
+            ps.setInt(1, items.getProducer_id());
             ps.execute();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();

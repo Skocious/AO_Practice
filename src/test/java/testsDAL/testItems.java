@@ -20,16 +20,16 @@ public class testItems {
 
     @Test
     public void createItemsSuccess(){
-        Items newItem = new Items(0, 4, "apple", "gala", 1);
+        Items newItem = new Items(0, 5, "monkey", "chimpanzee", 1000);
         Items resultNewItems = itemsDAO.createItems(newItem);
-        Assert.assertNotEquals(resultNewItems.getItem_id(), 1);
+        Assert.assertNotEquals(resultNewItems.getItem_id(), 4);
 
     }
 
     @Test
     public void selectItemsByIdSuccess(){
-        Items items = itemsDAO.selectItemsById(1);
-        Assert.assertEquals(items.getItem_id(), 1);
+        Items items = itemsDAO.selectItemsById(2);
+        Assert.assertEquals(items.getItem_id(), 2);
     }
 
     //check import
@@ -43,7 +43,7 @@ public class testItems {
 
     @Test
     public void updateItemsByIdSuccess(){
-        Items items = new Items(0, 4, "apple", "gala", 1);
+        Items items = new Items(10, 5, "apple", "gala", 2);
         Items result = itemsDAO.updateItemsById(items);
         Assert.assertTrue(items.getItem_id() != 0);
     }
