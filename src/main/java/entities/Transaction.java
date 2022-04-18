@@ -3,10 +3,10 @@ package entities;
 import java.util.Objects;
 
 public class Transaction {
-    int transactionId;
-    int customerId;
-    int producerId;
-    float transactionAmount;
+    private int transactionId;
+    private int customerId;
+    private int producerId;
+    private float transactionAmount;
 
     public Transaction(){}
 

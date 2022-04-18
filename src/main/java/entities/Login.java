@@ -4,9 +4,9 @@ package entities;
 import java.util.Objects;
 
 public class Login {
-    int LoginId;
-    String Username;
-    int Password;
+    private int LoginId;
+    private String Username;
+    private int Password;
 
     public Login(){}
 

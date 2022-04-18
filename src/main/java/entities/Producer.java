@@ -3,9 +3,9 @@ package entities;
 import java.util.Objects;
 
 public class Producer {
-    int ProducerId;
-    String ProducerName;
-    int LoginId;
+    private int ProducerId;
+    private String ProducerName;
+    private int LoginId;
 
     public Producer(){}
 

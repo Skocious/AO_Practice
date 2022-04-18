@@ -3,7 +3,6 @@ import DataAccessLayer.ItemsImp;
 import entities.Items;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.List;
 
 //        int item_id;
@@ -20,7 +19,7 @@ public class testItems {
 
     @Test
     public void createItemsSuccess(){
-        Items newItem = new Items(0, 5, "monkey", "chimpanzee", 1000);
+        Items newItem = new Items(0, 1, "monkey", "chimpanzee", 1000);
         Items resultNewItems = itemsDAO.createItems(newItem);
         Assert.assertNotEquals(resultNewItems.getItem_id(), 4);
 

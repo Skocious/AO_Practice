@@ -3,11 +3,11 @@ package entities;
 import java.util.Objects;
 
 public class Items {
-    int item_id;
-    int producer_id;
-    String item_name;
-    String item_description;
-    int price;
+    private int item_id;
+    private int producer_id;
+    private String item_name;
+    private String item_description;
+    private int price;
 
 
 

@@ -13,12 +13,4 @@ public class testLogin {
     Login login = loginDAO.selectLoginId(1,"John", "cat");
     Assert.assertEquals(login.getLoginId(), 1);
     }
-
-//    @Test
-//    public void selectCustomerLoginId(){
-//        Login login = loginDAO.selectCustomerLoginId(1,"Jack", "cat");
-//        Assert.assertEquals(login.getLoginId(), 1);
-//    }
-
-
 }
