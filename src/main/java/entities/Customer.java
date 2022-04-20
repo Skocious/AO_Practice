@@ -3,9 +3,9 @@ package entities;
 import java.util.Objects;
 
 public class Customer {
-    private int customer_id;
-    private String customer_name;
-    private int login_id;
+    int customer_id;
+    String customer_name;
+    int login_id;
 
     public Customer(){}
 

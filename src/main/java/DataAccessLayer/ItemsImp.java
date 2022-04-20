@@ -47,11 +47,11 @@ public class ItemsImp implements ItemsDAO{
             ResultSet rs = ps.executeQuery();
             rs.next();
             Items items = new Items(
-                    rs.getInt("item_id"),
-                    rs.getInt("producer_id"),
-                    rs.getString("item_name"),
-                    rs.getString("item_description"),
-                    rs.getInt("price")
+                rs.getInt("item_id"),
+                rs.getInt("producer_id"),
+                rs.getString("item_name"),
+                rs.getString("item_description"),
+                rs.getFloat("price")
             );
             return items;
         } catch (SQLException e) {
@@ -74,11 +74,11 @@ public class ItemsImp implements ItemsDAO{
                         rs.getInt("producer_id"),
                         rs.getString("item_name"),
                         rs.getString("item_description"),
-                        rs.getInt("price")
+                        rs.getFloat("price")
                 );
                 items.add(itemList);
             }
-                return items;
+            return items;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -109,15 +109,15 @@ public class ItemsImp implements ItemsDAO{
     @Override
     public int deleteItemsById(int itemId) {
 
-                    try (Connection connection = DataBaseConnection.createConnection()) {
-                        String sql = "delete from items where item_id = ?";
-                        PreparedStatement ps = connection.prepareStatement(sql);
-                        ps.setInt(1, itemId);
-                        return ps.executeUpdate();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        return 0;
-                    }
- }
+        try (Connection connection = DataBaseConnection.createConnection()) {
+            String sql = "delete from items where item_id = ?";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, itemId);
+            return ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
 }

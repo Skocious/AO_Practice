@@ -10,7 +10,7 @@ public class testLogin {
 
     @Test
     public void selectLoginId(){
-    Login login = loginDAO.selectLoginId(1,"John", "cat");
-    Assert.assertEquals(login.getLoginId(), 1);
+        Login login = loginDAO.selectLoginId(4,"Hand456", "456art");
+        Assert.assertEquals(login.getLoginId(), 4);
     }
 }

@@ -1,15 +1,17 @@
 package DataAccessLayer;
 
 import entities.Customer;
-import java.sql.*;
 import utilities.DataBaseConnection;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerImp implements CustomerDAO {
 
 
-    public CustomerImp() {
-        super();
-    }
+    public CustomerImp() {super();}
 
     @Override
     public Customer getCustomerId(int customerId) {
